@@ -30,7 +30,7 @@ class strstrTest extends \PHPUnit\Framework\TestCase {
 //            $this->assertEquals($test['resultado'], strstr($test['haystack'], $test['needle']));
 //        }
 //    }
-    function testStrstr() {
+    function test_strstr() {
         $this->assertEquals('@example.com', strstr('name@example.com', '@'));
 
         $this->assertEquals('.com', strstr('name@example.com', '.'));
