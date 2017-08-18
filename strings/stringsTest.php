@@ -1,6 +1,5 @@
 <?php
 
-
 class stringsTest extends \PHPUnit\Framework\TestCase {
 
     /**
@@ -29,14 +28,13 @@ class stringsTest extends \PHPUnit\Framework\TestCase {
      */
     function test_substr() {
         $string = 'abcdefghijklmnopqkstuvxyz';
-        
-        # ... 18 19 20 21 22 23 24 25 
-        # ...  k  s  t  u  v  x  y  z
-        $this->assertEquals('uvxyz', substr($string, 20));
-        $this->assertEquals('yz',    substr($string, 23));
-        $this->assertEquals('z',     substr($string, 24));
 
-        # Left
+        # slice
+        $this->assertEquals('abc',   substr($string, 0, 3));
+        $this->assertEquals('def',   substr($string, 3, 3));
+        $this->assertEquals('ghi',   substr($string, 6, 3));
+
+        # left
         $this->assertEquals('a',     substr($string, 0, 1));
         $this->assertEquals('abc',   substr($string, 0, 3));
         $this->assertEquals('abcde', substr($string, 0, 5));
@@ -46,10 +44,11 @@ class stringsTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('yz',    substr($string, -2));
         $this->assertEquals('xyz',   substr($string, -3));
 
-        # slice
-        $this->assertEquals('abc',   substr($string, 0, 3));
-        $this->assertEquals('def',   substr($string, 3, 3));
-        $this->assertEquals('ghi',   substr($string, 6, 3));
+        # ... 18 19 20 21 22 23 24 25 
+        # ...  k  s  t  u  v  x  y  z
+        $this->assertEquals('uvxyz', substr($string, 20));
+        $this->assertEquals('yz',    substr($string, 23));
+        $this->assertEquals('z',     substr($string, 24));
 
     }
 
