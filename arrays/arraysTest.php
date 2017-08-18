@@ -1,16 +1,13 @@
 <?php
 
-/**
- * Funções para Array
- *
- * https://secure.php.net/manual/pt_BR/ref.array.php
- */
-class ArraysTest extends \PHPUnit\Framework\TestCase {
+class arraysTest extends \PHPUnit\Framework\TestCase {
 
     /**
-     * is_array — Verifica se a variável é um array
+     * is_array — Finds whether a variable is an array
+     * 
+     * bool is_array ( mixed $var )
      *
-     * https://secure.php.net/manual/pt_BR/function.is-array.php
+     * https://secure.php.net/manual/en/function.is-array.php
      */
     function test_is_array() {
 
@@ -22,9 +19,11 @@ class ArraysTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * in_array — Checa se um valor existe em um array
+     * in_array — Checks if a value exists in an array
+     * 
+     * bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )
      *
-     * https://secure.php.net/manual/pt_BR/function.in-array.php0
+     * https://secure.php.net/manual/en/function.in-array.php
      */
     function test_in_array() {
 
@@ -34,11 +33,11 @@ class ArraysTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * key — Retorna uma chave de um array
+     * key — Fetch a key from an array
      *
-     * atalho para key_exists
+     * mixed key ( array &$array )
      *
-     * https://secure.php.net/manual/pt_BR/function.key.php
+     * https://secure.php.net/manual/en/function.key.php
      */
     function test_key() {
 
@@ -55,9 +54,11 @@ class ArraysTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * list — Cria variáveis como se fossem arrays
+     * list — Assign variables as if they were an array
      *
-     * https://secure.php.net/manual/pt_BR/function.list.php
+     * array list ( mixed $var1 [, mixed $... ] )
+     * 
+     * https://secure.php.net/manual/en/function.list.php
      */
     function test_list() {
         list($bebida, $cor, $substancia) = array('Café', 'marrom', 'cafeína');
@@ -65,8 +66,6 @@ class ArraysTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('Café', $bebida);
         $this->assertEquals('marrom', $cor);
         $this->assertEquals('cafeína', $substancia);
-
-        $this->assertEquals("Café é marrom e cafeína o faz especial", "$bebida é $cor e $substancia o faz especial");
     }
 
 }
