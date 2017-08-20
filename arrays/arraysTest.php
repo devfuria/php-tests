@@ -61,11 +61,11 @@ class arraysTest extends \PHPUnit\Framework\TestCase {
      * https://secure.php.net/manual/en/function.list.php
      */
     function test_list() {
-        list($bebida, $cor, $substancia) = array('Café', 'marrom', 'cafeína');
+        list($drink, $color, $power) = array('coffee', 'brown', 'caffeine');
 
-        $this->assertEquals('Café', $bebida);
-        $this->assertEquals('marrom', $cor);
-        $this->assertEquals('cafeína', $substancia);
+        $this->assertEquals('coffee', $drink);
+        $this->assertEquals('brown', $color);
+        $this->assertEquals('caffeine', $power);
     }
 
 }
