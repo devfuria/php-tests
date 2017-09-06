@@ -67,5 +67,26 @@ class arraysTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('brown', $color);
         $this->assertEquals('caffeine', $power);
     }
+    
+    /**
+     * array_slice — Extract a slice of the array
+     * 
+     * array array_slice ( array $array , int $offset [, int $length = NULL [, bool $preserve_keys = false ]] )
+     * 
+     * http://php.net/manual/en/function.array-slice.php
+     */
+    function test_array_slice() {
+
+        $input = ["a", "b", "c", "d", "e"];
+
+        $this->assertEquals(["c", "d", "e"], array_slice($input, 2));
+        $this->assertEquals(["d"],           array_slice($input, -2, 1));
+        $this->assertEquals(["a", "b", "c"], array_slice($input, 0, 3));
+        
+        # note the differences in the array keys
+        $this->assertEquals([0 => "c", 1 => "d"], array_slice($input, 2, -1));
+        $this->assertEquals([2 => "c", 3 => "d"], array_slice($input, 2, -1, true));
+        
+    }
 
 }
