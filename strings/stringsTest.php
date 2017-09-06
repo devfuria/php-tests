@@ -62,7 +62,6 @@ class stringsTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('uvxyz', substr($string, 20));
         $this->assertEquals('yz',    substr($string, 23));
         $this->assertEquals('z',     substr($string, 24));
-
     }
 
 }
