@@ -77,6 +77,15 @@ class stringsTest extends \PHPUnit\Framework\TestCase {
         
         $this->assertEquals("Is your name O'reilly?", stripslashes("Is your name O\'reilly?"));
         
+    }   
+    
+    /**
+     * htmlspecialchars — Convert special characters to HTML entities
+     * http://php.net/manual/en/function.htmlspecialchars.php
+     */
+    function test_htmlspecialchars() {
+        $this->assertEquals("foo", htmlspecialchars("foo"));
+        $this->assertEquals("&lt;foo/&gt;", htmlspecialchars("<foo/>"));
     }    
 
 }
