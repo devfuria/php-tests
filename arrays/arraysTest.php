@@ -54,6 +54,21 @@ class arraysTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
+     * count — Count all elements in an array, or something in an object
+     * 
+     * int count ( mixed $array_or_countable [, int $mode = COUNT_NORMAL ] )
+     * 
+     * http://php.net/manual/en/function.count.php
+     */
+    function test_count() {
+        $this->assertEquals(5, count(["a", "b", "c", "d", "e"]));
+        
+        $this->assertEquals(0, count([]));
+        $this->assertEquals(0, null);
+        $this->assertEquals(0, false);
+    }
+    
+    /**
      * list — Assign variables as if they were an array
      *
      * array list ( mixed $var1 [, mixed $... ] )
@@ -126,6 +141,74 @@ class arraysTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('car',   next($transport));
         $this->assertEquals('bike',  prev($transport));
         $this->assertEquals('plane', end($transport));
+        
+    }
+    
+    /**
+     * array_pop — Pop the element off the end of array
+     * 
+     * mixed array_pop ( array &$array )
+     * 
+     * http://php.net/manual/en/function.array-pop.php
+     */
+    function test_array_pop() {
+
+        $stack  = ["a", "b", "c", "d"];
+        $result = array_pop($stack);
+        
+        $this->assertEquals(["a", "b", "c"], $stack);
+        $this->assertEquals("d", $result);
+        
+    }
+    
+    /**
+     * array_push — Push one or more elements onto the end of array
+     * 
+     * int array_push ( array &$array , mixed $value1 [, mixed $... ] )
+     * 
+     * http://php.net/manual/en/function.array-push.php
+     */
+    function test_array_push() {
+
+        $stack  = ["a", "b"];
+        array_push($stack, "c");
+        array_push($stack, "d");
+        array_push($stack, "e", "f", "g");
+        
+        $this->assertEquals(["a", "b", "c", "d", "e", "f", "g"], $stack);
+        
+    }
+    
+    /**
+     * array_shift — Shift an element off the beginning of array
+     * 
+     * mixed array_shift ( array &$array )
+     * 
+     * http://php.net/manual/en/function.array-shift.php
+     */
+    function test_array_shift() {
+
+        $stack  = ["a", "b", "c"];
+        array_shift($stack);
+        
+        $this->assertEquals(["b", "c"], $stack);
+        
+    }
+    
+    /**
+     * array_unshift — Prepend one or more elements to the beginning of an array
+     * 
+     * int array_unshift ( array &$array , mixed $value1 [, mixed $... ] )
+     * 
+     * http://php.net/manual/en/function.array-unshift.php
+     */    
+    function test_array_unshift() {
+
+        $stack  = ["d", "e"];
+        array_unshift($stack, "b", "c");
+        array_unshift($stack, "a");
+        
+        $this->assertEquals(["a", "b", "c", "d", "e"], $stack);
         
     }
 
