@@ -63,22 +63,22 @@ class stringsTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('yz',    substr($string, 23));
         $this->assertEquals('z',     substr($string, 24));
     }
-    
+
     /**
      * addslashes — Quote string with slashes
      * http://php.net/manual/en/function.addslashes.php
-     * 
+     *
      * stripslashes — Un-quotes a quoted string
      * http://php.net/manual/en/function.stripslashes.php
      */
     function test_addslashes_stripslashes() {
-        
+
         $this->assertEquals("Is your name O\'reilly?", addslashes("Is your name O'reilly?"));
-        
+
         $this->assertEquals("Is your name O'reilly?", stripslashes("Is your name O\'reilly?"));
-        
-    }   
-    
+
+    }
+
     /**
      * htmlspecialchars — Convert special characters to HTML entities
      * http://php.net/manual/en/function.htmlspecialchars.php
@@ -86,6 +86,55 @@ class stringsTest extends \PHPUnit\Framework\TestCase {
     function test_htmlspecialchars() {
         $this->assertEquals("foo", htmlspecialchars("foo"));
         $this->assertEquals("&lt;foo/&gt;", htmlspecialchars("<foo/>"));
-    }    
+    }
+
+
+    /**
+     * implode — Join array elements with a string
+     *
+     * string implode ( string $glue , array $pieces )
+     *
+     * http://php.net/manual/en/function.implode.php
+     */
+    function test_implode() {
+        $this->assertEquals("abc",     implode(['a', 'b', 'c']));
+        $this->assertEquals("a, b, c", implode(", ", ['a', 'b', 'c']));
+        $this->assertEquals("a-b-c",   implode("-", ['a', 'b', 'c']));
+        
+        # join — Alias of implode()
+        # http://php.net/manual/en/function.join.php
+        $this->assertEquals("a-b-c",   join("-", ['a', 'b', 'c']));
+    }
+    
+    /**
+     * explode — Split a string by string
+     * 
+     * array explode ( string $delimiter , string $string [, int $limit = PHP_INT_MAX ] )
+     * 
+     * http://php.net/manual/en/function.explode.php
+     */
+    function test_explode() {
+        $this->assertEquals(['a', 'b', 'c'], explode(" ", "a b c"));
+        $this->assertEquals(['a', 'b', 'c'], explode("-", "a-b-c"));
+        $this->assertEquals(['a', 'b', 'c'], explode(", ", "a, b, c"));
+        
+        # see also str_split
+    }
+    
+    /**
+     * str_split — Convert a string to an array
+     * 
+     * array str_split ( string $string [, int $split_length = 1 ] )
+     * 
+     * http://php.net/manual/en/function.str-split.php
+     */
+    function test_str_split() {
+        $this->assertEquals(['a', 'b', 'c'], str_split("abc"));
+        $this->assertEquals(['a', 'b', 'c'], str_split("abc", 1));
+        
+        $this->assertEquals(['abc', 'def', 'ghi'], str_split("abcdefghi", 3));
+    }
+
+
 
 }
