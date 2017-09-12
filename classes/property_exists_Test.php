@@ -24,7 +24,7 @@ class PropertyExistsTest extends \PHPUnit\Framework\TestCase {
      */
     function test_property_exists() {
         $this->assertTrue(property_exists('MyClass', 'var'));
-        $this->assertFalse(property_exists('Foo', 'watch'));
+        $this->assertFalse(property_exists('MyClass', 'watch'));
     }
 
     function test_property_exists_for_protected() {
