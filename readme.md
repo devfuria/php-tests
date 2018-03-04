@@ -8,3 +8,4 @@ Brincando de testar as coisas em PHP.
 1. filter_var()
 2. substr_count()
 3. empty()
+4. dirname()
